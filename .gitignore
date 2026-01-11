@@ -1,0 +1,17 @@
+# Java / Maven
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# Node / React
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# OS trash
+.DS_Store
+Thumbs.db
+
+# Env files
+*.env
+*.env.local
+
