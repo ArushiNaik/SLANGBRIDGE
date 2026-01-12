@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/slangbridge.iml" filepath="$PROJECT_DIR$/.idea/slangbridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SLANGBRIDGE.iml" filepath="$PROJECT_DIR$/.idea/SLANGBRIDGE.iml" />
     </modules>
   </component>
 </project>
