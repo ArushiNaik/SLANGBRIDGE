@@ -1,0 +1,34 @@
+package com.slangbridge.backend.controller;
+
+import com.slangbridge.backend.model.Slang;
+import com.slangbridge.backend.repository.SlangRepository;
+import java.util.List;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping({"/api/slangs"})
+@CrossOrigin(
+        origins = {"*"}
+)
+public class SlangController {
+    private final SlangRepository repo;
+
+    public SlangController(SlangRepository repo) {
+        this.repo = repo;
+    }
+
+    @GetMapping
+    public List<Slang> getAll() {
+        return this.repo.findAll();
+    }
+
+    @GetMapping({"/{term}"})
+    public ResponseEntity<?> getByTerm(@PathVariable String term) {
+        return (ResponseEntity)this.repo.findByTermIgnoreCase(term).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+}
