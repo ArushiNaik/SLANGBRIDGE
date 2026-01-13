@@ -6,168 +6,298 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 @Configuration
 public class DataLoader {
+
     @Bean
     CommandLineRunner loadData(SlangRepository repo) {
-        return (args) -> {
-            repo.save(new Slang((Long)null, "cooked", "Completely exhausted or defeated", "After finals week, I was absolutely cooked."));
-            repo.save(new Slang((Long)null, "bet", "Agreement or confirmation", "You’re coming at 8? Bet."));
-            repo.save(new Slang((Long)null, "ghosted", "Suddenly ignored without explanation", "They stopped replying—I got ghosted."));
-            repo.save(new Slang((Long)null, "rizz", "Charm or flirting ability", "That dude has insane rizz."));
-            repo.save(new Slang((Long)null, "lowkey", "Quietly or secretly", "I lowkey love that song."));
-            repo.save(new Slang((Long)null, "highkey", "Very openly or strongly", "I highkey need sleep."));
-            repo.save(new Slang((Long)null, "sus", "Suspicious or questionable", "Why are you acting so sus?"));
-            repo.save(new Slang((Long)null, "mid", "Average or unimpressive", "The movie was mid."));
-            repo.save(new Slang((Long)null, "W", "Win or success", "That test grade is a W."));
-            repo.save(new Slang((Long)null, "L", "Loss or failure", "Missing the bus was an L."));
-            repo.save(new Slang((Long)null, "npc", "Someone who lacks awareness", "Bro moves like an NPC."));
-            repo.save(new Slang((Long)null, "cap", "Lie or exaggeration", "That story is cap."));
-            repo.save(new Slang((Long)null, "no cap", "No lie, being honest", "This food is good, no cap."));
-            repo.save(new Slang((Long)null, "main character", "Someone acting like life centers on them", "She’s in her main character era."));
-            repo.save(new Slang((Long)null, "slaps", "Is very good", "That song slaps."));
-            repo.save(new Slang((Long)null, "dead", "Something extremely funny", "That joke had me dead."));
-            repo.save(new Slang((Long)null, "touch grass", "Go outside and be realistic", "Bro needs to touch grass."));
-            repo.save(new Slang((Long)null, "bricked", "Unable to function or frozen", "My laptop is bricked."));
-            repo.save(new Slang((Long)null, "vibe", "Atmosphere or feeling", "This place has good vibes."));
-            repo.save(new Slang((Long)null, "fire", "Excellent or impressive", "That outfit is fire."));
-            repo.save(new Slang((Long)null, "extra", "Over-the-top behavior", "You’re doing too much, that’s extra."));
-            repo.save(new Slang((Long)null, "salty", "Bitter or upset", "He’s salty about losing."));
-            repo.save(new Slang((Long)null, "flex", "Show off", "That was a weird flex."));
-            repo.save(new Slang((Long)null, "clapped", "Broken or ruined", "My sleep schedule is clapped."));
-            repo.save(new Slang((Long)null, "bussin", "Really good (food)", "This burger is bussin."));
-            repo.save(new Slang((Long)null, "drip", "Stylish outfit", "His drip is clean."));
-            repo.save(new Slang((Long)null, "ick", "Sudden feeling of disgust", "That gave me the ick."));
-            repo.save(new Slang((Long)null, "ratio", "More negative reactions than positive", "Your post got ratioed."));
-            repo.save(new Slang((Long)null, "soft launch", "Subtle reveal", "She soft-launched her relationship."));
-            repo.save(new Slang((Long)null, "hard launch", "Obvious reveal", "They hard-launched on Instagram."));
-            repo.save(new Slang((Long)null, "delulu", "Delusional thinking", "Staying delulu is the solulu."));
-            repo.save(new Slang((Long)null, "ate", "Did extremely well", "She ate that presentation."));
-            repo.save(new Slang((Long)null, "based", "Confident and authentic opinion", "That take is based."));
-            repo.save(new Slang((Long)null, "cringe", "Embarrassing behavior", "That speech was cringe."));
-            repo.save(new Slang((Long)null, "shade", "Subtle insult", "She threw shade."));
-            repo.save(new Slang((Long)null, "receipts", "Proof or evidence", "Show the receipts."));
-            repo.save(new Slang((Long)null, "dry", "Boring or lifeless", "The party was dry."));
-            repo.save(new Slang((Long)null, "valid", "Reasonable or acceptable", "That excuse is valid."));
-            repo.save(new Slang((Long)null, "pressed", "Overly bothered", "Why are you so pressed?"));
-            repo.save(new Slang((Long)null, "glow up", "Major improvement", "Her glow up is unreal."));
-            repo.save(new Slang((Long)null, "side eye", "Judgmental look", "That comment got a side eye."));
-            repo.save(new Slang((Long)null, "send it", "Go all in", "Let’s send it."));
-            repo.save(new Slang((Long)null, "caught in 4k", "Caught with evidence", "You got caught in 4k."));
-            repo.save(new Slang((Long)null, "out of pocket", "Inappropriate", "That joke was out of pocket."));
-            repo.save(new Slang((Long)null, "core memory", "Memorable moment", "That trip was a core memory."));
-            repo.save(new Slang((Long)null, "brain rot", "Overconsuming bad content", "TikTok gave me brain rot."));
-            repo.save(new Slang((Long)null, "era", "Phase of life", "I’m in my gym era."));
-            repo.save(new Slang((Long)null, "it’s giving", "It feels like", "It’s giving confidence."));
-            repo.save(new Slang((Long)null, "shook", "Surprised or shocked", "I was shook."));
-            repo.save(new Slang((Long)null, "folded", "Gave up easily", "He folded under pressure."));
-            repo.save(new Slang((Long)null, "locked in", "Fully focused", "I’m locked in this semester."));
-            repo.save(new Slang((Long)null, "chef’s kiss", "Perfect", "That ending was chef’s kiss."));
-            repo.save(new Slang((Long)null, "copy", "Understood", "Say less, copy."));
-            repo.save(new Slang((Long)null, "say less", "I understand", "You want pizza? Say less."));
-            repo.save(new Slang((Long)null, "nah that’s wild", "Extreme disbelief", "You did WHAT? Nah that’s wild."));
-            repo.save(new Slang((Long)null, "final boss", "The hardest challenge", "That exam was the final boss."));
-            repo.save(new Slang((Long)null, "skibidi", "Absurd viral meme phrase", "Bro keeps saying skibidi in class."));
-            repo.save(new Slang((Long)null, "gyat", "Exclamation of admiration", "GYAT bro chill."));
-            repo.save(new Slang((Long)null, "ope", "Polite midwestern slip-up", "Ope—didn’t mean to bump you."));
-            repo.save(new Slang((Long)null, "boomer", "Outdated person or behavior", "Okay boomer."));
-            repo.save(new Slang((Long)null, "sigma", "Self-reliant or lone-wolf energy", "He’s giving sigma vibes."));
-            repo.save(new Slang((Long)null, "glazed", "Distracted or blank-faced", "She looked glazed in math class."));
-            repo.save(new Slang((Long)null, "midwit", "Someone average who overestimates intelligence", "That take is such a midwit thing."));
-            repo.save(new Slang((Long)null, "camp", "So bad it’s entertaining", "That outfit is camp."));
-            repo.save(new Slang((Long)null, "snatched", "Well-fitted or flattering", "Her jacket is snatched."));
-            repo.save(new Slang((Long)null, "serve", "To deliver style or confidence", "She served at that event."));
-            repo.save(new Slang((Long)null, "yeet", "Throw something forcefully", "He yeeted his backpack on the couch."));
-            repo.save(new Slang((Long)null, "slay", "Perform exceptionally", "She slayed that solo."));
-            repo.save(new Slang((Long)null, "gooning", "Lost in sensory distraction", "You’ve been gooning on TikTok for hours."));
-            repo.save(new Slang((Long)null, "bag secured", "Achieving a goal or earning money", "Job offer came in—bag secured."));
-            repo.save(new Slang((Long)null, "bag fumbled", "Lost an opportunity", "Bro fumbled the bag big time."));
-            repo.save(new Slang((Long)null, "built different", "Exceptional talent or strength", "That goalie is built different."));
-            repo.save(new Slang((Long)null, "clout", "Social influence or status", "People only do that for clout."));
-            repo.save(new Slang((Long)null, "clout chasing", "Seeking attention through association", "He keeps clout chasing creators."));
-            repo.save(new Slang((Long)null, "bozo", "Foolish or goofy person", "Stop acting like a bozo."));
-            repo.save(new Slang((Long)null, "brick", "Freezing cold weather", "It’s brick outside."));
-            repo.save(new Slang((Long)null, "pull up", "Arrive or come over", "Pull up after school."));
-            repo.save(new Slang((Long)null, "spin back", "Reattempt or retaliate", "Spin back on that quiz."));
-            repo.save(new Slang((Long)null, "fr", "For real", "You’re late again? Fr."));
-            repo.save(new Slang((Long)null, "glazing", "Excessive praise or attention", "Stop glazing the teacher."));
-            repo.save(new Slang((Long)null, "swerve", "Avoid or reject", "I tried asking—she swerved."));
-            repo.save(new Slang((Long)null, "pulling", "Successfully attracting someone", "Bro is pulling lately."));
-            repo.save(new Slang((Long)null, "low vibrational", "Negative or draining energy", "Their argument was low vibrational."));
-            repo.save(new Slang((Long)null, "pop off", "React strongly or aggressively", "The crowd popped off at that goal."));
-            repo.save(new Slang((Long)null, "suspect behavior", "Questionable decision", "Leaving early was suspect behavior."));
-            repo.save(new Slang((Long)null, "caught lacking", "Unprepared or vulnerable", "He got caught lacking in gym."));
-            repo.save(new Slang((Long)null, "washed", "Past their prime or outdated", "That franchise is washed."));
-            repo.save(new Slang((Long)null, "mobile", "Easily moved or active", "Bro is mobile on defense."));
-            repo.save(new Slang((Long)null, "brutal", "Harsh honesty", "Her review was brutal."));
-            repo.save(new Slang((Long)null, "zesty", "Feminine or flamboyant energy", "His movements were zesty."));
-            repo.save(new Slang((Long)null, "malding", "Mad and balding (metaphorically)", "He’s malding over the exam."));
-            repo.save(new Slang((Long)null, "cope", "Accept disappointment", "It is what it is—cope."));
-            repo.save(new Slang((Long)null, "peak", "Best possible", "That track was peak."));
-            repo.save(new Slang((Long)null, "overclocked", "Performing beyond normal limits", "My brain is overclocked studying."));
-            repo.save(new Slang((Long)null, "rent free", "Living in someone's mind", "I’m living rent free in his head."));
-            repo.save(new Slang((Long)null, "gatekeeping", "Withholding knowledge", "Stop gatekeeping skincare."));
-            repo.save(new Slang((Long)null, "booster", "Someone who steals retail items", "Security caught a booster at the mall."));
-            repo.save(new Slang((Long)null, "understood the assignment", "Performed perfectly", "She understood the assignment."));
-            repo.save(new Slang((Long)null, "no notes", "Perfect execution", "Her speech? No notes."));
-            repo.save(new Slang((Long)null, "ratio proof", "Immune to online backlash", "That meme is ratio proof."));
-            repo.save(new Slang((Long)null, "over it", "Done with something emotionally", "After today, I'm over it."));
-            repo.save(new Slang((Long)null, "on god", "Strong affirmation of truth", "That test was impossible on god."));
-            repo.save(new Slang((Long)null, "joker moment", "Time of snapping or frustration", "Studying at 3AM is my joker moment."));
-            repo.save(new Slang((Long)null, "zoomies", "Sudden burst of chaotic energy", "My dog had the zoomies at midnight."));
-            repo.save(new Slang((Long)null, "plot armor", "Unlikely protection from failure", "He survived with pure plot armor."));
-            repo.save(new Slang((Long)null, "underleveled", "Not prepared enough for challenge", "I was underleveled for that chem exam."));
-            repo.save(new Slang((Long)null, "overleveled", "Stronger than required", "I'm overleveled for first-year courses."));
-            repo.save(new Slang((Long)null, "low diff", "Won with minimal effort", "Study group beat that test low diff."));
-            repo.save(new Slang((Long)null, "high diff", "Hard fight or challenge", "Compsci was high diff this term."));
-            repo.save(new Slang((Long)null, "full send", "Commit fully regardless of consequences", "No study plan, full send tomorrow."));
-            repo.save(new Slang((Long)null, "shielded", "Protected socially or emotionally", "Her friends keep her shielded from drama."));
-            repo.save(new Slang((Long)null, "cooked politically", "Ruined reputation in group dynamics", "He's cooked politically after that speech."));
-            repo.save(new Slang((Long)null, "rolled", "Dominated or defeated easily", "Our team got rolled in playoffs."));
-            repo.save(new Slang((Long)null, "camped", "Targeted repeatedly", "The boss camped me the whole round."));
-            repo.save(new Slang((Long)null, "low income arc", "Phase of financial struggle", "Summer job ended—entering my low income arc."));
-            repo.save(new Slang((Long)null, "overstimmed", "Mentally overwhelmed by stimuli", "Mall crowds get me overstimmed."));
-            repo.save(new Slang((Long)null, "vibeless", "Lacking good atmosphere", "The party was vibeless after midnight."));
-            repo.save(new Slang((Long)null, "on demon time", "Acting boldly and aggressively", "He was on demon time during finals."));
-            repo.save(new Slang((Long)null, "no thoughts head empty", "Lack of thinking or awareness", "Post-exam I’m no thoughts head empty."));
-            repo.save(new Slang((Long)null, "brain go brrr", "Mind acting without rational processing", "Cold coffee makes the brain go brrr."));
-            repo.save(new Slang((Long)null, "outside", "Socially active", "Everyone’s outside this weekend."));
-            repo.save(new Slang((Long)null, "inside era", "Period of staying home often", "I'm in my inside era now."));
-            repo.save(new Slang((Long)null, "main quest", "Primary life objective", "Graduating is the main quest."));
-            repo.save(new Slang((Long)null, "side quest", "Non-essential goal or task", "Getting boba was a side quest today."));
-            repo.save(new Slang((Long)null, "NPC energy", "Passive or unaware vibe", "The cashier had NPC energy."));
-            repo.save(new Slang((Long)null, "protagonist syndrome", "Belief life revolves around oneself", "Group projects bring out protagonist syndrome."));
-            repo.save(new Slang((Long)null, "buffed", "Enhanced or improved", "He got buffed after joining the gym."));
-            repo.save(new Slang((Long)null, "nerfed", "Weakened or made worse", "Tuition got nerfed? No, tuition got buffed."));
-            repo.save(new Slang((Long)null, "skill issue", "Blaming failure on lack of skill", "You dropped it? Skill issue."));
-            repo.save(new Slang((Long)null, "cope strat", "Strategy to deal with disappointment", "Retail therapy is my cope strat."));
-            repo.save(new Slang((Long)null, "ratio immune", "Cannot be ratioed online", "That meme is ratio immune."));
-            repo.save(new Slang((Long)null, "wifi warrior", "Brave online, timid in person", "He only talks back as a wifi warrior."));
-            repo.save(new Slang((Long)null, "brick phone era", "Time without good tech", "Middle school was my brick phone era."));
-            repo.save(new Slang((Long)null, "error 404", "Emotion or logic not found", "Sleeping schedule? Error 404."));
-            repo.save(new Slang((Long)null, "downloaded patch", "Improved suddenly overnight", "She slept 10 hours and downloaded a patch."));
-            repo.save(new Slang((Long)null, "patched up", "Recovered from crisis", "After therapy he's patched up."));
-            repo.save(new Slang((Long)null, "boosted stats", "Increased performance under conditions", "Caffeine gives boosted stats."));
-            repo.save(new Slang((Long)null, "prestige", "Advance after completion of stage", "Graduating is like prestige IRL."));
-            repo.save(new Slang((Long)null, "zero drip", "No style at all", "The outfit had zero drip."));
-            repo.save(new Slang((Long)null, "deflated", "Emotionally exhausted", "After the exam I felt deflated."));
-            repo.save(new Slang((Long)null, "inflated", "Overly confident", "He walked out inflated after question 1."));
-            repo.save(new Slang((Long)null, "AFK", "Absent mentally or physically", "Sorry I was AFK during that lecture."));
-            repo.save(new Slang((Long)null, "irl buff", "Skill that helps in real world", "Cooking is an irl buff."));
-            repo.save(new Slang((Long)null, "mid arc", "Period of mediocrity", "This semester was a mid arc."));
-            repo.save(new Slang((Long)null, "god run", "Unexpected perfect performance", "My math quiz was a god run."));
-            repo.save(new Slang((Long)null, "low roll", "Worst possible outcome", "I low rolled on job interviews."));
-            repo.save(new Slang((Long)null, "high roll", "Lucky or fortunate result", "Study guesses were a high roll."));
-            repo.save(new Slang((Long)null, "tutorial mode", "Extremely easy conditions", "Group project was tutorial mode for him."));
-            repo.save(new Slang((Long)null, "hard mode", "Challenging conditions", "Working two jobs is hard mode."));
-            repo.save(new Slang((Long)null, "night mode", "Late-night productivity state", "Assignments unlocked night mode."));
-            repo.save(new Slang((Long)null, "speedrun", "Complete task very quickly", "I speedran the homework."));
-            repo.save(new Slang((Long)null, "slowrun", "Complete task unnecessarily slow", "He slowran the presentation."));
-            repo.save(new Slang((Long)null, "chilling", "Relaxing with no urgency", "I'm chilling till midterms."));
-            repo.save(new Slang((Long)null, "cracked", "Exceptional skill or performance", "He's cracked at coding."));
-            repo.save(new Slang((Long)null, "decayed", "Loss of previous ability", "My Spanish decayed over summer."));
-            repo.save(new Slang((Long)null, "maxed out", "Reached capacity", "Brain is maxed out today."));
-            repo.save(new Slang((Long)null, "no cooldown", "Acting repeatedly without pause", "He kept complaining with no cooldown."));
+        return args -> {
+
+            List<Slang> seedData = List.of(
+                    new Slang(null, "lol", "Laughing out loud", "That video made me lol."),
+                    new Slang(null, "lmao", "Laughing very hard", "I saw the blooper and lmao."),
+                    new Slang(null, "rofl", "Rolling on the floor laughing", "The meme had me rofl."),
+                    new Slang(null, "rizz", "Charm or flirting ability", "He has insane rizz."),
+                    new Slang(null, "mid", "Mediocre or unimpressive", "The movie was mid."),
+                    new Slang(null, "bussin", "Tastes extremely good", "This pasta is bussin."),
+                    new Slang(null, "fr", "For real; seriously", "You're coming? fr."),
+                    new Slang(null, "sus", "Suspicious or questionable", "He was acting sus."),
+                    new Slang(null, "ong", "On God; strong agreement", "That place had the best fries ong."),
+                    new Slang(null, "no cap", "Not lying; being honest", "That test was brutal no cap."),
+                    new Slang(null, "cap", "Lie or exaggeration", "That's cap, he wasn't there."),
+                    new Slang(null, "bet", "Agreement or acceptance", "Want to meet at 7? bet."),
+                    new Slang(null, "deadass", "Completely serious", "I'm deadass tired."),
+                    new Slang(null, "ate", "Did exceptionally well", "She ate during her performance."),
+                    new Slang(null, "extra", "Over the top or dramatic", "He's so extra about birthdays."),
+                    new Slang(null, "pressed", "Annoyed or frustrated", "Why are you so pressed about it?"),
+                    new Slang(null, "lowkey", "Somewhat or subtly", "I'm lowkey excited for tomorrow."),
+                    new Slang(null, "highkey", "Openly or obviously", "I'm highkey ready for summer."),
+                    new Slang(null, "vibe", "Atmosphere or emotional feel", "This cafe has such a good vibe."),
+                    new Slang(null, "goat", "Greatest of all time", "Serena is the goat."),
+                    new Slang(null, "pog", "Excitement or praise (gaming)", "You got the rare drop, pog!"),
+                    new Slang(null, "poggers", "Excitement expressed in gaming streams", "That clutch was poggers!"),
+                    new Slang(null, "irl", "In real life", "We finally met irl."),
+                    new Slang(null, "afk", "Away from keyboard", "Hold up, I'm afk for a sec."),
+                    new Slang(null, "gg", "Good game", "We lost but gg."),
+                    new Slang(null, "wp", "Well played (gaming)", "Nice flank, wp."),
+                    new Slang(null, "ez", "Easy win or task", "That match was ez."),
+                    new Slang(null, "clutch", "Performed under pressure successfully", "He hit the clutch shot."),
+                    new Slang(null, "ghosting", "Cutting off communication without explanation", "After the interview they ghosted me."),
+                    new Slang(null, "salty", "Bitter or annoyed", "He's salty about losing."),
+                    new Slang(null, "fit", "Outfit or clothing style", "Your fit is clean."),
+                    new Slang(null, "drip", "Stylish clothing or accessories", "He's got the drip."),
+                    new Slang(null, "flex", "Show off", "He's flexing his new sneakers."),
+                    new Slang(null, "tea", "Gossip or interesting news", "Spill the tea about last night."),
+                    new Slang(null, "spilling", "Revealing gossip", "We're spilling today."),
+                    new Slang(null, "valid", "Cool or acceptable", "That jacket is valid."),
+                    new Slang(null, "based", "Unapologetically authentic opinion", "She said it straight, very based."),
+                    new Slang(null, "ratio", "When replies outweigh likes (social media)", "He got ratioed instantly."),
+                    new Slang(null, "stan", "Intense fan or supporter", "He's a Billie Eilish stan."),
+                    new Slang(null, "simp", "Person who shows excessive devotion to someone", "He's simping again."),
+                    new Slang(null, "main character", "Person perceived at center of attention", "She's got main character energy."),
+                    new Slang(null, "energy", "Distinct vibe or attitude", "He's got mentor energy."),
+                    new Slang(null, "yeet", "Throw forcefully or express excitement", "He yeeted the ball."),
+                    new Slang(null, "slaps", "Sounding excellent, usually music", "This track slaps."),
+                    new Slang(null, "fire", "Very good or impressive", "Your artwork is fire."),
+                    new Slang(null, "heated", "Angry or emotionally intense", "The argument got heated."),
+                    new Slang(null, "big yikes", "Strong embarrassment reaction", "Forgetting the lines was big yikes."),
+                    new Slang(null, "yikes", "Mild embarrassment reaction", "That comment was yikes."),
+                    new Slang(null, "bruh", "Expression of disbelief or disappointment", "Bruh, not again."),
+                    new Slang(null, "ok boomer", "Dismissive retort to outdated opinions", "Okay boomer, calm down."),
+                    new Slang(null, "snatched", "Looks excellent or well styled", "Your hair is snatched today."),
+                    new Slang(null, "bop", "Catchy or enjoyable song", "This chorus is a bop."),
+                    new Slang(null, "lag", "Delay or slowdown (tech)", "My ping is causing lag."),
+                    new Slang(null, "ping", "Network response time", "Your ping is spiking hard."),
+                    new Slang(null, "buffed", "Improved in ability (gaming)", "That character got buffed."),
+                    new Slang(null, "nerfed", "Made weaker (gaming)", "They nerfed the sniper."),
+                    new Slang(null, "hardcarry", "Single player ensures success", "He hardcarried the match."),
+                    new Slang(null, "malding", "Mad and balding (joking insult)", "The streamer was malding after losing."),
+                    new Slang(null, "touch_grass", "Go outside, reconnect with reality", "Log off and touch grass."),
+                    new Slang(null, "vaxxed", "Vaccinated", "I’m fully vaxxed now."),
+                    new Slang(null, "clouty", "Chasing clout", "That post is too clouty."),
+                    new Slang(null, "snacc", "Attractive person", "Did you see that snacc at the party?"),
+                    new Slang(null, "drippin", "Wearing stylish clothes", "He’s drippin today."),
+                    new Slang(null, "gasoline", "Extremely hype or exciting", "That concert was gasoline."),
+                    new Slang(null, "shrekt", "Destroyed completely (humorous)", "He got shrekt in the debate."),
+                    new Slang(null, "finessed", "Skillfully handled situation", "She finessed the tickets."),
+                    new Slang(null, "stanned", "Strongly supported", "We stanned that artist."),
+                    new Slang(null, "litty", "Very exciting or fun", "The party was litty."),
+                    new Slang(null, "okurrr", "Emphatic approval or excitement", "She said okurrr to the idea."),
+                    new Slang(null, "gassed", "Excited or hyped up", "He’s gassed for the game."),
+                    new Slang(null, "suspect", "Suspicious or questionable", "That move seems suspect."),
+                    new Slang(null, "npc", "Acting without agency or originality", "Bro is acting like an NPC."),
+                    new Slang(null, "humble_flex", "Showing off subtly", "Posting those trophies is a humble flex."),
+                    new Slang(null, "vibes", "Mood or atmosphere", "The vibes are good tonight."),
+                    new Slang(null, "slay", "Perform with excellence or confidence", "She slayed that role."),
+                    new Slang(null, "buggin", "Acting irrationally", "Why are you buggin over nothing?"),
+                    new Slang(null, "locked_in", "Focused and determined", "He's locked in for finals."),
+                    new Slang(null, "frfr", "For real for real (emphasis)", "I'm tired frfr."),
+                    new Slang(null, "mother", "Title for a beloved female performer", "Beyoncé is mother."),
+                    new Slang(null, "father", "Admired male performer or leader", "Keanu Reeves is father."),
+                    new Slang(null, "spooked", "Startled or alarmed", "That jump scare spooked me."),
+                    new Slang(null, "girlboss", "Woman asserting power with confidence", "She girlbossed the entire pitch."),
+                    new Slang(null, "gatekeep_gaslight", "Meme combo of manipulative behaviors", "He tried to gaslight and gatekeep."),
+                    new Slang(null, "understood_the_assignment", "Delivered exactly what was needed", "She understood the assignment."),
+                    new Slang(null, "brain_empty", "No thoughts or mental clarity", "After exams my brain is empty."),
+                    new Slang(null, "crying_screaming", "Extreme laughter reaction", "That edit has me crying screaming."),
+                    new Slang(null, "low_effort", "Minimal investment or quality", "That meme was low effort."),
+                    new Slang(null, "high_effort", "Substantial work or attention to detail", "This cosplay is high effort."),
+                    new Slang(null, "tbh", "To be honest", "TBH I liked the OG version better."),
+                    new Slang(null, "iktr", "I know that’s right", "IKTR she snapped."),
+                    new Slang(null, "iykyk", "If you know you know", "This spot hits, IYKYK."),
+                    new Slang(null, "oomf", "One of my followers", "OOMF went viral today."),
+                    new Slang(null, "rent_free", "Occupying thoughts without consent", "That song lives rent free in my head."),
+                    new Slang(null, "cookbook", "Collection of strategies or tactics", "He shared his chess cookbook."),
+                    new Slang(null, "slumped", "Completely exhausted or asleep", "After gym I was slumped."),
+                    new Slang(null, "sturdy", "Stylish dance trend or solid footing", "He got sturdy at the party."),
+                    new Slang(null, "ate_down", "Performed extremely well with emphasis", "She ate down during rehearsals."),
+                    new Slang(null, "giving", "Evoking a particular aesthetic", "This outfit is giving vintage."),
+                    new Slang(null, "touch_starved", "Lacking physical affection (light slang)", "Being single got me touch starved."),
+                    new Slang(null, "screaming", "Strong laughter reaction", "I'm screaming at that meme."),
+                    new Slang(null, "pookie", "Playful nickname for friend", "Relax pookie, it's fine."),
+                    new Slang(null, "bestie", "Close friend", "Calm down bestie."),
+                    new Slang(null, "fan_cam", "Edited video highlighting a person", "The fan cam went viral."),
+                    new Slang(null, "canon_event", "Inevitable formative experience", "Heartbreak is a canon event."),
+                    new Slang(null, "locked", "Committed or secured", "We’re locked for tomorrow."),
+                    new Slang(null, "strap_in", "Prepare for intensity", "Strap in, midterms are here."),
+                    new Slang(null, "red_flag", "Warning sign of bad behavior", "Interrupting everyone is a red flag."),
+                    new Slang(null, "green_flag", "Positive trait or healthy behavior", "Good communication is a green flag."),
+                    new Slang(null, "drained", "Emotionally or mentally exhausted", "I feel drained after back-to-back meetings."),
+                    new Slang(null, "brain_fog", "Reduced mental clarity", "The cold medicine gave me brain fog."),
+                    new Slang(null, "played_out", "Overused or unoriginal", "That trend is played out."),
+                    new Slang(null, "cook_session", "Period of focused productivity", "We had a whole cook session on the project."),
+                    new Slang(null, "zoned_out", "Detached or unfocused mentally", "I zoned out during the lecture."),
+                    new Slang(null, "overthinking", "Thinking excessively about a situation", "I’m overthinking that message."),
+                    new Slang(null, "spin_back", "Return after leaving", "He said he’d spin back tomorrow."),
+                    new Slang(null, "zoomies", "Sudden burst of energy", "The dog got zoomies at midnight."),
+                    new Slang(null, "shadow_realm", "Humorously severe exile", "That argument sent him to the shadow realm."),
+                    new Slang(null, "clapped_back", "Responded sharply to criticism", "She clapped back at the comments."),
+                    new Slang(null, "villain_arc", "Period of acting unapologetically", "She entered her villain arc post breakup."),
+                    new Slang(null, "side_quest", "Minor, optional activity", "Cleaning my room instead of homework was a side quest."),
+                    new Slang(null, "plot_twist", "Unexpected development", "That exam had a plot twist ending."),
+                    new Slang(null, "skill_issue", "Fault attributed to lack of skill", "He failed—skill issue."),
+                    new Slang(null, "built_diff", "Exceptionally capable", "She’s built diff academically."),
+                    new Slang(null, "study_grind", "Focused academic work", "Back on the study grind."),
+                    new Slang(null, "caffeine_buff", "Temporary enhancement from caffeine", "I need a caffeine buff before class."),
+                    new Slang(null, "downtime", "Resting period between tasks", "Using lunchtime as downtime."),
+                    new Slang(null, "casuals", "People not deeply invested in hobby", "That game mode is full of casuals."),
+                    new Slang(null, "meta", "Most effective strategy available", "Shield spam is the current meta."),
+                    new Slang(null, "overbuffed", "Improved too much", "That spell is overbuffed now."),
+                    new Slang(null, "matchmade", "Paired for activity or competition", "We got matchmade instantly."),
+                    new Slang(null, "clutched", "Succeeded under pressure", "She clutched the last question."),
+                    new Slang(null, "reverse_sweep", "Comeback from losing position", "The team pulled a reverse sweep."),
+                    new Slang(null, "breakpoint", "Critical turning moment", "Finals are my breakpoint."),
+                    new Slang(null, "no_brainer", "Obvious choice", "Taking that bonus was a no brainer."),
+                    new Slang(null, "overkill", "Excessive effort beyond necessity", "Studying 12 hours was overkill."),
+                    new Slang(null, "underwhelmed", "Unimpressed beyond expectation", "The finale left me underwhelmed."),
+                    new Slang(null, "mid_tier", "Moderately average quality", "That café was mid tier."),
+                    new Slang(null, "top_tier", "Highest ranking quality", "Her notes are top tier."),
+                    new Slang(null, "hard_pass", "Strong refusal", "Going out in that cold is a hard pass."),
+                    new Slang(null, "soft_launch", "Subtle introduction of something new", "Posting hints was a soft launch."),
+                    new Slang(null, "hard_launch", "Direct and public introduction", "He hard launched the new project."),
+                    new Slang(null, "peak", "Optimal or best state", "Dinner tonight was peak."),
+                    new Slang(null, "valley", "Low or suboptimal state", "Last semester was a valley."),
+                    new Slang(null, "pain_arc", "Period defined by hardship", "Midterms started the pain arc."),
+                    new Slang(null, "buffed_confidence", "Temporary increase in confidence", "New shoes buffed my confidence."),
+                    new Slang(null, "nerd_sniped", "Distracted by an interesting detail", "I got nerd sniped by that puzzle."),
+                    new Slang(null, "wonky", "Unstable or slightly off", "The screen looks wonky."),
+                    new Slang(null, "tweaking", "Acting restless or irrational", "He was tweaking over the test."),
+                    new Slang(null, "bricked", "Rendered nonfunctional", "My phone bricked mid update."),
+                    new Slang(null, "jank", "Low quality but functional", "The setup is jank but works."),
+                    new Slang(null, "patched_up", "Improvised repair", "We patched up the bike with tape."),
+                    new Slang(null, "dropped_ball", "Failed responsibility", "The team dropped the ball on planning."),
+                    new Slang(null, "off_radar", "Unavailable or unresponsive", "He went off radar all weekend."),
+                    new Slang(null, "on_radar", "Noticed or tracked for attention", "That idea is on my radar now."),
+                    new Slang(null, "sniped", "Taken quickly before others", "He sniped the last cookie."),
+                    new Slang(null, "stacked", "Equipped with many advantages", "Her schedule is stacked today."),
+                    new Slang(null, "overbooked", "Scheduled beyond reasonable capacity", "I’m overbooked tomorrow."),
+                    new Slang(null, "underbooked", "Scheduled with minimal tasks", "Next week is underbooked."),
+                    new Slang(null, "ghosted", "Sudden cutoff of communication", "She ghosted me after the party."),
+                    new Slang(null, "clout heavy", "Having strong online influence", "His account is clout heavy."),
+                    new Slang(null, "mood", "Relatable feeling or vibe", "That song is such a mood."),
+                    new Slang(null, "rager", "Wild party", "Last night’s rager was insane."),
+                    new Slang(null, "cancelled", "Rejected or boycotted", "That movie got cancelled online."),
+                    new Slang(null, "receipts", "Evidence for a claim", "Show me the receipts."),
+                    new Slang(null, "slide_in_dms", "Message someone privately", "He tried to slide in DMs."),
+                    new Slang(null, "flexing_on", "Showing off to someone", "He’s flexing on everyone."),
+                    new Slang(null, "hold_tea", "Keep information secret for gossip", "I’ll hold the tea for now."),
+                    new Slang(null, "spicy_take", "Controversial opinion", "That’s a spicy take."),
+                    new Slang(null, "shook", "Surprised or shaken", "I was shook by the ending."),
+                    new Slang(null, "bamboozled", "Tricked or fooled", "I got bamboozled in the game."),
+                    new Slang(null, "sniped_out", "Eliminated quickly", "He got sniped out early."),
+                    new Slang(null, "ready_set_go", "Immediate start", "Ready, set, go!"),
+                    new Slang(null, "level_up", "Progress to next stage", "I finally leveled up."),
+                    new Slang(null, "power_move", "Strategic impressive action", "Quitting early was a power move."),
+                    new Slang(null, "combo_breaker", "Interruption of momentum", "That crit was a combo breaker."),
+                    new Slang(null, "next_level", "Surpassing previous standard", "This new track is next level."),
+                    new Slang(null, "cheugy", "Outdated or trying too hard", "Those shoes are cheugy."),
+                    new Slang(null, "sus_af", "Extremely suspicious", "That behavior is sus af."),
+                    new Slang(null, "big_mood", "Strongly relatable feeling", "That nap is big mood."),
+                    new Slang(null, "extra_af", "Excessively dramatic", "He’s extra af about the announcement."),
+                    new Slang(null, "shooketh", "Exaggerated shocked expression", "I was shooketh after the finale."),
+                    new Slang(null, "capper", "Person who lies", "Don’t trust him, he’s a capper."),
+                    new Slang(null, "hitdifferent", "Unique or unusually good experience", "This coffee hitsdifferent."),
+                    new Slang(null, "sksksk", "Excited or laughing expression", "She typed sksksk in chat."),
+                    new Slang(null, "and_i_oop", "Reaction to unexpected event", "And I oop, she fell."),
+                    new Slang(null, "living_my_best_life", "Feeling content and fulfilled", "I’m living my best life today."),
+                    new Slang(null, "stan_account", "Dedicated fan account", "This stan account tweets only BTS content."),
+                    new Slang(null, "bussin_ass", "Extremely good", "This pizza is bussin ass."),
+                    new Slang(null, "drip_check", "Assessing style or fashion", "We did a drip check in class."),
+                    new Slang(null, "clout_chaser", "Person seeking attention or fame", "He’s a clout chaser online."),
+                    new Slang(null, "sus_brain", "Suspiciously thinking", "That’s sus brain logic."),
+                    new Slang(null, "simped_out", "Overly devoted", "He simped out for the whole team."),
+                    new Slang(null, "yeeted_out", "Thrown or discarded", "That ball got yeeted out of the court."),
+                    new Slang(null, "flexin_hard", "Showing off aggressively", "He’s flexin hard with his new car."),
+                    new Slang(null, "drip_tier", "Level of style", "That outfit is drip tier."),
+                    new Slang(null, "gaslighted", "Manipulated emotionally", "She got gaslighted in the argument."),
+                    new Slang(null, "chefs_kiss", "Perfect execution", "The presentation was chefs kiss."),
+                    new Slang(null, "main_char_energy", "Dominant presence", "He walked in with main char energy."),
+                    new Slang(null, "snacc_alert", "Noticing someone attractive", "Snacc alert by the lockers."),
+                    new Slang(null, "vaxxed_up", "Fully vaccinated", "I’m vaxxed up and ready."),
+                    new Slang(null, "big_brain", "High intelligence or insight", "That solution was big brain."),
+                    new Slang(null, "canceled_af", "Completely rejected or boycotted", "That idea is canceled af."),
+                    new Slang(null, "lit_as_f", "Extremely exciting or fun", "The concert was lit as f."),
+                    new Slang(null, "sksksk_and_i_oop", "Excited chaotic reaction", "Sksksk and I oop, she tripped."),
+                    new Slang(null, "mood_af", "Relatable strong feeling", "That nap is mood af."),
+                    new Slang(null, "glowed_up", "Improved appearance dramatically", "She really glowed up this year."),
+                    new Slang(null, "thicc", "Curvy or full-bodied", "That character is thicc."),
+                    new Slang(null, "thirsty", "Desperate for attention", "He’s thirsty for clout."),
+                    new Slang(null, "capper_detected", "Caught lying", "Capper detected, he’s lying."),
+                    new Slang(null, "simp_alert", "Noticeable simping behavior", "Simp alert in the chat."),
+                    new Slang(null, "chugged", "Consumed rapidly", "He chugged the soda."),
+                    new Slang(null, "ratchet", "Loud or wild behavior", "That party got ratchet."),
+                    new Slang(null, "throwing_shade", "Subtle insult or criticism", "She’s throwing shade at him."),
+                    new Slang(null, "wig", "Mind blown expression", "Wig, that plot twist."),
+                    new Slang(null, "hunty", "Playful insult or term of endearment", "You better not, hunty."),
+                    new Slang(null, "on_fleek", "Perfectly styled or executed", "Eyebrows on fleek today."),
+                    new Slang(null, "slay_queen", "Confident, excellent woman", "She’s a true slay queen."),
+                    new Slang(null, "slay_king", "Confident, excellent man", "He’s a slay king."),
+                    new Slang(null, "tea_spilled", "Gossip revealed", "The tea’s spilled now."),
+                    new Slang(null, "snatched_edges", "Perfectly styled hair edges", "Her edges are snatched."),
+                    new Slang(null, "woke", "Socially aware", "She’s woke about climate issues."),
+                    new Slang(null, "capper_move", "Dishonest or fake action", "That was a capper move."),
+                    new Slang(null, "ok_boomer", "Dismissive response to older opinion", "Ok boomer, sure."),
+                    new Slang(null, "simp_mode", "Acting overly devoted", "He’s in simp mode today."),
+                    new Slang(null, "midly_amused", "Slightly entertained", "I’m midly amused by this."),
+                    new Slang(null, "litty_fam", "Extremely fun with friends", "The party was litty fam."),
+                    new Slang(null, "skrrt", "Sound of car acceleration; excited reaction", "Skrrt, we’re leaving."),
+                    new Slang(null, "wavy", "Cool or stylish vibe", "That beat is wavy."),
+                    new Slang(null, "hits_different", "Feels unique or exceptional", "This song hits different."),
+                    new Slang(null, "finna", "Going to (slang)", "I’m finna leave."),
+                    new Slang(null, "bet_that", "Strong agreement", "Bet that, I’m in."),
+                    new Slang(null, "litty_af", "Extremely fun or exciting", "The festival was litty af."),
+                    new Slang(null, "slaps_hard", "Very good, impactful", "This remix slaps hard."),
+                    new Slang(null, "clap_back", "Respond sharply to criticism", "She clapped back at the trolls."),
+                    new Slang(null, "popped_off", "Performed exceptionally", "He popped off during the game."),
+                    new Slang(null, "hit_em_up", "Attack verbally or jokingly", "He hit em up in chat."),
+                    new Slang(null, "sus_move", "Suspicious action", "That was a sus move."),
+                    new Slang(null, "clouted_up", "Boosted in influence", "He clouted up after the viral post."),
+                    new Slang(null, "main_char", "Dominant central figure", "She’s the main char in the group."),
+                    new Slang(null, "spicy", "Exciting or controversial", "That take is spicy."),
+                    new Slang(null, "juice", "Influence or respect", "He’s got the juice in class."),
+                    new Slang(null, "gucci", "All good or fine", "Everything’s gucci."),
+                    new Slang(null, "troll_mode", "Acting mischievously online", "He’s in troll mode today."),
+                    new Slang(null, "weirdflex", "Odd display of pride", "That’s a weird flex."),
+                    new Slang(null, "weirdflex_but_ok", "Odd display of pride, but acceptable", "Weird flex but ok."),
+                    new Slang(null, "snap", "Surprised or impressed reaction", "Snap! That’s insane."),
+                    new Slang(null, "lit_go", "Excitedly go", "Litty, let’s lit go!"),
+                    new Slang(null, "heat_check", "Assessing strength or quality", "Time for a heat check on the beats."),
+                    new Slang(null, "drip_check_done", "Style confirmed", "Drip check done, looking good."),
+                    new Slang(null, "snack_mode", "Noticing someone attractive", "Snack mode activated."),
+                    new Slang(null, "yass", "Excited affirmation", "Yass queen!"),
+                    new Slang(null, "boss_up", "Level up or take control", "It’s time to boss up."),
+                    new Slang(null, "yeeted", "Thrown with force", "He yeeted the ball."),
+                    new Slang(null, "big_brain_move", "Intelligent action", "That was a big brain move."),
+                    new Slang(null, "hitdifferent_now", "Now feels exceptional", "This flavor hitsdifferent now."),
+                    new Slang(null, "mood_now", "Current feeling is relatable", "Nap time is mood now."),
+                    new Slang(null, "glow_up_now", "Improved appearance presently", "She glowed up now."),
+                    new Slang(null, "snatched_now", "Looks perfect currently", "Edges are snatched now."),
+                    new Slang(null, "gassed_up", "Excited or hyped", "He’s gassed up for the event."),
+                    new Slang(null, "flex_hard", "Show off aggressively", "Flex hard with those gains."),
+                    new Slang(null, "drip_now", "Stylish currently", "Drip now, outfit complete."),
+                    new Slang(null, "heat_now", "High energy or hype", "The room is heat now."),
+                    new Slang(null, "pog_now", "Excitement right now", "Pog now, that’s insane.")
+            );
+
+
+            // pull existing terms once
+            Set<String> existing = repo.findAll()
+                    .stream()
+                    .map(s -> s.getTerm().toLowerCase())
+                    .collect(Collectors.toSet());
+
+            // filter out duplicates before insert
+            List<Slang> newOnes = seedData.stream()
+                    .filter(s -> !existing.contains(s.getTerm().toLowerCase()))
+                    .toList();
+
+            if (!newOnes.isEmpty()) {
+                repo.saveAll(newOnes);
+            }
         };
     }
 }

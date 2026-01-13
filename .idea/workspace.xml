@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17b3ced9-1b85-4dce-beeb-298738c6c7bc" name="Changes" comment="corrected">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/BackendApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/config/DataLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/SlangController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/model/Slang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/model/SlangBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/repository/SlangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="17b3ced9-1b85-4dce-beeb-298738c6c7bc" name="Changes" comment="full stack finally">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/BackendApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/config/DataLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/SlangController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/model/Slang$SlangBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/model/Slang.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/repository/SlangRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/config/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/config/DataLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +42,10 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/repository/SlangRepository.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/config/DataLoader.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -122,7 +113,7 @@
       <workItem from="1768192628044" duration="2856000" />
       <workItem from="1768195530951" duration="669000" />
       <workItem from="1768196243711" duration="1021000" />
-      <workItem from="1768197318768" duration="3703000" />
+      <workItem from="1768197318768" duration="9396000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -180,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768197381225</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="full stack finally">
+      <option name="closed" value="true" />
+      <created>1768275106277</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1768275106277</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +199,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added" />
     <MESSAGE value="corrected" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrected" />
+    <MESSAGE value="full stack finally" />
+    <option name="LAST_COMMIT_MESSAGE" value="full stack finally" />
   </component>
 </project>
