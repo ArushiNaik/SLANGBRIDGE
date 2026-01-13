@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17b3ced9-1b85-4dce-beeb-298738c6c7bc" name="Changes" comment="code structure changed in DataLoader.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/SlangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/SlangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/repository/SlangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/repository/SlangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/components/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/components/SearchBar.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="17b3ced9-1b85-4dce-beeb-298738c6c7bc" name="Changes" comment="added a feature of autocomplete in searchbar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +110,7 @@
       <workItem from="1768192628044" duration="2856000" />
       <workItem from="1768195530951" duration="669000" />
       <workItem from="1768196243711" duration="1021000" />
-      <workItem from="1768197318768" duration="10370000" />
+      <workItem from="1768197318768" duration="10766000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -189,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768282248652</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added a feature of autocomplete in searchbar">
+      <option name="closed" value="true" />
+      <created>1768283295839</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1768283295840</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +214,7 @@
     <MESSAGE value="corrected" />
     <MESSAGE value="full stack finally" />
     <MESSAGE value="code structure changed in DataLoader.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="code structure changed in DataLoader.java" />
+    <MESSAGE value="added a feature of autocomplete in searchbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a feature of autocomplete in searchbar" />
   </component>
 </project>
