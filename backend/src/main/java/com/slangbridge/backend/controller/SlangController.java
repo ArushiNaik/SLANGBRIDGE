@@ -4,11 +4,7 @@ import com.slangbridge.backend.model.Slang;
 import com.slangbridge.backend.repository.SlangRepository;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping({"/api/slangs"})
@@ -31,4 +27,12 @@ public class SlangController {
     public ResponseEntity<?> getByTerm(@PathVariable String term) {
         return (ResponseEntity)this.repo.findByTermIgnoreCase(term).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+    @GetMapping("/autocomplete")
+    public List<String> autocomplete(@RequestParam String prefix) {
+        return repo.findTop10ByTermStartingWithIgnoreCase(prefix)
+                .stream()
+                .map(Slang::getTerm)
+                .toList();
+    }
+
 }
