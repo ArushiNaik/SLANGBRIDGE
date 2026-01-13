@@ -1,39 +1,56 @@
-import { useState, useEffect } from "react";
-import { debounce } from "lodash";
+import { useState, useEffect, useRef } from "react";
+import { getAutocomplete } from "../api/slangApi";
 
-export default function SearchBar({ value, onChange, onSearch, onRandom }) {
+export default function SearchBar({ value = "", onChange, onSearch, onRandom }) {
     const [suggestions, setSuggestions] = useState([]);
+    const wrapperRef = useRef(null);
 
-    // Debounced fetch for autocomplete
-    const fetchSuggestions = debounce(async (prefix) => {
-        if (!prefix.trim()) return setSuggestions([]);
-        try {
-            const res = await fetch(`/api/slang/autocomplete?prefix=${prefix}`);
-            const data = await res.json();
-            setSuggestions(data);
-        } catch (err) {
-            console.error(err);
-            setSuggestions([]);
-        }
-    }, 300);
-
-    // Trigger suggestions fetch on input change
+    // Close suggestions if clicked outside
     useEffect(() => {
-        fetchSuggestions(value);
+        const handleClickOutside = (event) => {
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+                setSuggestions([]);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // Fetch autocomplete suggestions
+    useEffect(() => {
+        if (!value.trim()) {
+            setSuggestions([]);
+            return;
+        }
+
+        const fetchSuggestions = async () => {
+            try {
+                const data = await getAutocomplete(value);
+                if (Array.isArray(data)) setSuggestions(data);
+                else setSuggestions([]);
+            } catch (err) {
+                console.error("Autocomplete error:", err);
+                setSuggestions([]);
+            }
+        };
+
+        fetchSuggestions();
     }, [value]);
 
     const handleSelect = (term) => {
         onChange(term);
         setSuggestions([]);
+        onSearch();
     };
 
     return (
-        <div className="search-box" style={{ position: "relative" }}>
+        <div className="search-box" ref={wrapperRef} style={{ position: "relative" }}>
             <input
                 type="text"
                 placeholder="Type a slang word (e.g. cooked, rizz)"
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
+                autoComplete="off"
             />
             <button onClick={onSearch}>Search</button>
             <button className="secondary" onClick={onRandom}>
@@ -41,30 +58,10 @@ export default function SearchBar({ value, onChange, onSearch, onRandom }) {
             </button>
 
             {suggestions.length > 0 && (
-                <ul
-                    className="suggestions"
-                    style={{
-                        position: "absolute",
-                        top: "100%",
-                        left: 0,
-                        right: 0,
-                        background: "white",
-                        border: "1px solid #ccc",
-                        zIndex: 10,
-                        listStyle: "none",
-                        margin: 0,
-                        padding: 0,
-                        maxHeight: "200px",
-                        overflowY: "auto",
-                    }}
-                >
-                    {suggestions.map((s) => (
-                        <li
-                            key={s}
-                            onClick={() => handleSelect(s)}
-                            style={{ padding: "5px 10px", cursor: "pointer" }}
-                        >
-                            {s}
+                <ul className="autocomplete-list">
+                    {suggestions.map((term, index) => (
+                        <li key={index} onClick={() => handleSelect(term)}>
+                            {term}
                         </li>
                     ))}
                 </ul>

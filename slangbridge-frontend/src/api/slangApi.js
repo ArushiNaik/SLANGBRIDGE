@@ -12,3 +12,10 @@ export const getRandomSlang = async () => {
     const all = response.data;
     return all[Math.floor(Math.random() * all.length)];
 };
+
+export async function getAutocomplete(prefix) {
+    const res = await fetch(`http://localhost:8080/api/slangs/autocomplete?prefix=${prefix}`);
+    if (!res.ok) throw new Error("Failed to fetch autocomplete");
+    return await res.json();
+}
+

@@ -37,4 +37,5 @@ public class SlangController {
                 .map(Slang::getTerm)
                 .toList();
     }
+
 }
