@@ -18,6 +18,8 @@ public class DataLoader {
         return args -> {
 
             List<Slang> seedData = List.of(
+                    new Slang(null, "cook'in", "performing exceptionally well, succeeding at something, or being ", "Let him cook!"),
+                    new Slang(null, "cooked", "in an inescapably bad situation", "they would be totally cooked without him."),
                     new Slang(null, "lol", "Laughing out loud", "That video made me lol."),
                     new Slang(null, "lmao", "Laughing very hard", "I saw the blooper and lmao."),
                     new Slang(null, "rofl", "Rolling on the floor laughing", "The meme had me rofl."),

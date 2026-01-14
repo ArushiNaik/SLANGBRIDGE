@@ -19,3 +19,26 @@ export async function getAutocomplete(prefix) {
     return await res.json();
 }
 
+// slangApi.js
+export async function checkQuizAnswer(term, selectedOption) {
+    const res = await fetch(`/api/slangs/quiz/answer`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ term, selectedOption })
+    });
+    return await res.json();
+}
+export async function getQuizSession(size = 10) {
+    const res = await fetch(`/api/slangs/quiz/session?size=${size}`);
+    return await res.json();
+}
+const BASE_URL = "http://localhost:8080/api/quiz"; // update if your backend runs elsewhere
+
+export async function getQuizQuestion() {
+    const res = await fetch(`${BASE_URL}/multiple-choice`);
+    if (!res.ok) throw new Error("Failed to fetch quiz question");
+    return res.json();
+}
+
+
+

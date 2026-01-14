@@ -246,3 +246,47 @@ body.dark .autocomplete-list li:hover {
     background: #334155;
 }
 
+.quiz-card {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #020617;
+    border-left: 8px solid #22d3ee;
+    color: white;
+}
+
+.quiz-card h2 {
+    margin-bottom: 20px;
+    color: #22d3ee;
+}
+
+.quiz-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quiz-card li {
+    margin-bottom: 10px;
+}
+
+.quiz-card button {
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    background: #22d3ee;
+    color: #020617;
+    cursor: pointer;
+}
+
+.quiz-card button:disabled {
+    background: #64748b;
+    cursor: not-allowed;
+}
+
+.quiz-card .feedback {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+

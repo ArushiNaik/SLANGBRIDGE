@@ -1,8 +1,13 @@
 package com.slangbridge.backend.controller;
 
+import com.slangbridge.backend.dto.QuizAnswerRequest;
+import com.slangbridge.backend.dto.QuizAnswerResponse;
+import com.slangbridge.backend.dto.QuizSession;
 import com.slangbridge.backend.model.Slang;
 import com.slangbridge.backend.repository.SlangRepository;
 import java.util.List;
+
+import com.slangbridge.backend.service.SlangQuizService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,11 +15,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/slangs")
 @CrossOrigin(origins = "*")
 public class SlangController {
-
     private final SlangRepository repo;
+    private final SlangQuizService quizService;
 
-    public SlangController(SlangRepository repo) {
+    public SlangController(SlangRepository repo, SlangQuizService quizService) {
         this.repo = repo;
+        this.quizService = quizService;
     }
 
     @GetMapping
@@ -37,5 +43,15 @@ public class SlangController {
                 .map(Slang::getTerm)
                 .toList();
     }
+    @PostMapping("/quiz/answer")
+    public QuizAnswerResponse checkQuizAnswer(@RequestBody QuizAnswerRequest req){
+        return  quizService.checkAnswer(req);
+    }
+
+    @GetMapping("/quiz/session")
+    public QuizSession getQuizSession(@RequestParam(defaultValue = "10") int size) {
+        return quizService.generateQuizSession(size);
+    }
+
 
 }

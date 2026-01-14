@@ -1,139 +1,119 @@
 package com.slangbridge.backend.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Generated;
 
 @Entity
 public class Slang {
+
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(
-            nullable = false,
-            unique = true
-    )
+
+    @Column(nullable = false, unique = true)
     private String term;
-    @Column(
-            nullable = false,
-            length = 500
-    )
+
+    @Column(nullable = false, length = 500)
     private String definition;
-    @Column(
-            nullable = false,
-            length = 500
-    )
+
+    @Column(nullable = false, length = 500)
     private String example;
 
-    @Generated
-    public static SlangBuilder builder() {
-        return new SlangBuilder();
-    }
-
-    @Generated
-    public Long getId() {
-        return this.id;
-    }
-
-    @Generated
-    public String getTerm() {
-        return this.term;
-    }
-
-    @Generated
-    public String getDefinition() {
-        return this.definition;
-    }
-
-    @Generated
-    public String getExample() {
-        return this.example;
-    }
-
-    @Generated
-    public void setId(final Long id) {
-        this.id = id;
-    }
-
-    @Generated
-    public void setTerm(final String term) {
-        this.term = term;
-    }
-
-    @Generated
-    public void setDefinition(final String definition) {
-        this.definition = definition;
-    }
-
-    @Generated
-    public void setExample(final String example) {
-        this.example = example;
-    }
+    @Column(nullable = true, length = 100)
+    private String category;
 
     @Generated
     public Slang() {
     }
 
     @Generated
-    public Slang(final Long id, final String term, final String definition, final String example) {
+    public Slang(Long id, String term, String definition, String example, String category) {
         this.id = id;
         this.term = term;
         this.definition = definition;
         this.example = example;
+        this.category = category;
     }
 
     @Generated
+    public Slang(Long id, String term, String definition, String example) {
+        this(id, term, definition, example, null);
+    }
+
+    @Generated
+    public Long getId() { return id; }
+
+    @Generated
+    public String getTerm() { return term; }
+
+    @Generated
+    public String getDefinition() { return definition; }
+
+    @Generated
+    public String getExample() { return example; }
+
+    @Generated
+    public String getCategory() { return category; }
+
+    @Generated
+    public void setId(Long id) { this.id = id; }
+
+    @Generated
+    public void setTerm(String term) { this.term = term; }
+
+    @Generated
+    public void setDefinition(String definition) { this.definition = definition; }
+
+    @Generated
+    public void setExample(String example) { this.example = example; }
+
+    @Generated
+    public void setCategory(String category) { this.category = category; }
+
+    @Generated
+    public static SlangBuilder builder() { return new SlangBuilder(); }
+
+    @Generated
     public static class SlangBuilder {
-        @Generated
         private Long id;
-        @Generated
         private String term;
-        @Generated
         private String definition;
-        @Generated
         private String example;
+        private String category;
 
-        @Generated
-        SlangBuilder() {
-        }
+        SlangBuilder() {}
 
-        @Generated
-        public SlangBuilder id(final Long id) {
+        public SlangBuilder id(Long id) {
             this.id = id;
             return this;
         }
 
-        @Generated
-        public SlangBuilder term(final String term) {
+        public SlangBuilder term(String term) {
             this.term = term;
             return this;
         }
 
-        @Generated
-        public SlangBuilder definition(final String definition) {
+        public SlangBuilder definition(String definition) {
             this.definition = definition;
             return this;
         }
 
-        @Generated
-        public SlangBuilder example(final String example) {
+        public SlangBuilder example(String example) {
             this.example = example;
             return this;
         }
 
-        @Generated
-        public Slang build() {
-            return new Slang(this.id, this.term, this.definition, this.example);
+        public SlangBuilder category(String category) {
+            this.category = category;
+            return this;
         }
 
-        @Generated
+        public Slang build() {
+            return new Slang(id, term, definition, example, category);
+        }
+
         public String toString() {
-            return "Slang.SlangBuilder(id=" + this.id + ", term=" + this.term + ", definition=" + this.definition + ", example=" + this.example + ")";
+            return "Slang.SlangBuilder(id=" + id + ", term=" + term + ", definition=" + definition + ", example=" + example + ", category=" + category + ")";
         }
     }
 }
