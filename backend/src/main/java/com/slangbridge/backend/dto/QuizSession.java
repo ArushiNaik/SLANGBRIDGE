@@ -4,6 +4,5 @@ import java.util.List;
 
 public record QuizSession(
         List<QuizQuestion> questions,
-        int total
-) {}
+        int size) {}
 

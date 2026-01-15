@@ -1,47 +1,35 @@
 package com.slangbridge.backend.controller;
 
 import com.slangbridge.backend.dto.QuizQuestion;
-import com.slangbridge.backend.model.Slang;
-import com.slangbridge.backend.repository.SlangRepository;
-import org.springframework.data.domain.PageRequest;
+import com.slangbridge.backend.dto.QuizSession;
+import com.slangbridge.backend.dto.QuizAnswerRequest;
+import com.slangbridge.backend.dto.QuizAnswerResponse;
+import com.slangbridge.backend.service.SlangQuizService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.*;
 
 @RestController
 @RequestMapping("/api/quiz")
 @CrossOrigin(origins = "*")
 public class QuizController {
 
-    private final SlangRepository repo;
+    private final SlangQuizService quizService;
 
-    public QuizController(SlangRepository repo) {
-        this.repo = repo;
+    public QuizController(SlangQuizService quizService) {
+        this.quizService = quizService;
     }
 
     @GetMapping("/multiple-choice")
-    public QuizQuestion generateQuizQuestion() {
+    public QuizQuestion getSingleQuestion() {
+        return quizService.generateQuestion();
+    }
 
-        // get 4 random slang entries
-        List<Slang> random = repo.getRandomSlangsLimit10(PageRequest.of(0, 4));
+    @GetMapping("/session")
+    public QuizSession getQuizSession(@RequestParam int size) {
+        return quizService.generateQuizSession(size);
+    }
 
-        if (random.size() < 4) {
-            throw new RuntimeException("Not enough slang entries in DB.");
-        }
-
-        Slang correct = random.get(0);
-
-        List<String> options = random.stream()
-                .map(Slang::getDefinition)
-                .toList();
-
-        // shuffle options
-        Collections.shuffle(options);
-
-        return new QuizQuestion(
-                correct.getTerm(),
-                correct.getDefinition(),
-                options
-        );
+    @PostMapping("/check")
+    public QuizAnswerResponse checkAnswer(@RequestBody QuizAnswerRequest req) {
+        return quizService.checkAnswer(req);
     }
 }

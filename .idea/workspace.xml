@@ -4,24 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17b3ced9-1b85-4dce-beeb-298738c6c7bc" name="Changes" comment="added a feature of autocomplete in searchbar">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/QuizController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/dto/QuizAnswerRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/dto/QuizAnswerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/dto/QuizQuestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/dto/QuizSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/service/SlangQuizService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slangbridge-frontend/src/components/Quiz.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slangbridge-frontend/src/components/QuizSession.jsx" afterDir="false" />
+    <list default="true" id="17b3ced9-1b85-4dce-beeb-298738c6c7bc" name="Changes" comment="Backend ready for quiz feature">
+      <change afterPath="$PROJECT_DIR$/slangbridge-frontend/src/api/quizApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/BackendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/config/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/config/DataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/SlangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/SlangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/model/Slang.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/model/Slang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/repository/SlangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/repository/SlangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/QuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/QuizController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/dto/QuizSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/dto/QuizSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/service/SlangQuizService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/service/SlangQuizService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/api/slangApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/api/slangApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/components/Quiz.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/components/Quiz.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/components/QuizSession.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/components/QuizSession.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +66,7 @@
   "keyToString": {
     "Application.SlangbridgeBackendApplication.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.QuizSession.jsx.executor": "Run",
     "Node.js.SearchBar.jsx.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -129,7 +122,8 @@
       <workItem from="1768192628044" duration="2856000" />
       <workItem from="1768195530951" duration="669000" />
       <workItem from="1768196243711" duration="1021000" />
-      <workItem from="1768197318768" duration="25289000" />
+      <workItem from="1768197318768" duration="27617000" />
+      <workItem from="1768433223703" duration="7320000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -227,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768284681098</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Backend ready for quiz feature">
+      <option name="closed" value="true" />
+      <created>1768366986069</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1768366986072</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +252,7 @@
     <MESSAGE value="full stack finally" />
     <MESSAGE value="code structure changed in DataLoader.java" />
     <MESSAGE value="added a feature of autocomplete in searchbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a feature of autocomplete in searchbar" />
+    <MESSAGE value="Backend ready for quiz feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backend ready for quiz feature" />
   </component>
 </project>

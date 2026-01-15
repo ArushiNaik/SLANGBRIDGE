@@ -5,7 +5,7 @@ import SearchBar from "./components/SearchBar";
 import SlangCard from "./components/SlangCard";
 import Footer from "./components/Footer";
 import Quiz from "./components/Quiz";
-
+import QuizSession from "./components/QuizSession";
 function App() {
     const [term, setTerm] = useState("");
     const [slang, setSlang] = useState(null);
@@ -56,9 +56,10 @@ function App() {
 
             {error && <p className="error">{error}</p>}
             <SlangCard slang={slang} />
-            <Quiz/>{
+        {/*    <Quiz/>{*/}
 
-        }
+        {/*}*/}
+            <QuizSession />
 
             <Footer />
         </div>
