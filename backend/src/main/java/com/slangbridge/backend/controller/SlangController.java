@@ -53,5 +53,11 @@ public class SlangController {
         return quizService.generateQuizSession(size);
     }
 
+    @GetMapping("/all")
+    public List<Slang> getAllSlang() {
+        return repo.findAll();
+    }
+
+
 
 }

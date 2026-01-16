@@ -1,4 +1,24 @@
 /* ===== RESET ===== */
+:root {
+    --arcade-bg: #0d0f1a;
+    --arcade-surface: #111425;
+    --arcade-accent: #00d8ff;
+    --arcade-accent-2: #ff2be6;
+    --arcade-text: #e8f4ff;
+    --arcade-muted: #8a99b8;
+    --arcade-success: #19ff6b;
+    --arcade-error: #ff4040;
+    --arcade-shadow: 0 0 12px;
+}
+
+body {
+    background: var(--arcade-bg);
+    color: var(--arcade-text);
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -12,6 +32,17 @@ body {
 }
 
 /* ===== HEADER ===== */
+.header {
+    padding: 1rem 2rem;
+    background: var(--arcade-surface);
+    border-bottom: 2px solid var(--arcade-accent);
+    box-shadow: var(--arcade-shadow) var(--arcade-accent);
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
 .header {
     padding: 40px 20px;
     border-bottom: 3px solid #22d3ee;
@@ -36,11 +67,11 @@ body {
     margin-top: 10px;
     font-size: 1.1rem;
     color: #94a3b8;
-    padding-left: 400px;
+
 }
 .footer {
     align-items: center;
-    padding-left: 450px
+    padding-left: 400px
 }
 .setError{
     align-items: center;
@@ -289,4 +320,120 @@ body.dark .autocomplete-list li:hover {
     font-weight: bold;
 }
 
+.nav-header {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    padding: 0.9rem;
+    background: var(--arcade-surface);
+    border-bottom: 2px solid var(--arcade-accent-2);
+    box-shadow: var(--arcade-shadow) var(--arcade-accent-2);
+}
 
+.btn-header {
+    padding: 0.45rem 1.2rem;
+    border: 2px solid var(--arcade-accent);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--arcade-text);
+    font-weight: 600;
+    transition: 0.18s ease;
+}
+
+.btn-header:hover {
+    background: var(--arcade-accent);
+    color: #000;
+    box-shadow: var(--arcade-shadow) var(--arcade-accent);
+}
+
+.search-container input {
+    padding: 0.6rem 1rem;
+    width: 260px;
+    border-radius: 6px;
+    background: var(--arcade-surface);
+    border: 2px solid var(--arcade-accent);
+    color: var(--arcade-text);
+    font-size: 1rem;
+}
+
+.search-container input:focus {
+    outline: none;
+    box-shadow: var(--arcade-shadow) var(--arcade-accent);
+}
+
+.search-container button {
+    margin-left: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: 2px solid var(--arcade-accent-2);
+    background: var(--arcade-surface);
+    color: var(--arcade-text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.18s ease;
+}
+
+.search-container button:hover {
+    background: var(--arcade-accent-2);
+    box-shadow: var(--arcade-shadow) var(--arcade-accent-2);
+}
+.slang-card {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    padding: 1.4rem;
+    background: var(--arcade-surface);
+    border-radius: 10px;
+    border: 2px solid var(--arcade-accent);
+    box-shadow: var(--arcade-shadow) var(--arcade-accent);
+}
+
+.slang-card h2 {
+    color: var(--arcade-accent);
+    margin: 0;
+    margin-bottom: 0.6rem;
+}
+
+.slang-card p {
+    color: var(--arcade-muted);
+}
+.quiz-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: var(--arcade-surface);
+    padding: 1.6rem;
+    border-radius: 10px;
+    border: 2px solid var(--arcade-accent);
+    box-shadow: var(--arcade-shadow) var(--arcade-accent);
+    text-align: center;
+}
+
+.quiz-option {
+    margin: 0.5rem 0;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--arcade-accent);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.quiz-option:hover {
+    background: var(--arcade-accent);
+    color: #000;
+}
+.matching-game-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--arcade-surface);
+    border: 2px solid var(--arcade-accent-2);
+    box-shadow: var(--arcade-shadow) var(--arcade-accent-2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}

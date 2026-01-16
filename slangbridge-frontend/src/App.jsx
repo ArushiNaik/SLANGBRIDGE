@@ -1,11 +1,14 @@
+import { Routes, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+import MatchingGame from "./pages/MatchingGame";
 import { getSlang, getRandomSlang } from "./api/slangApi";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import SlangCard from "./components/SlangCard";
 import Footer from "./components/Footer";
-import Quiz from "./components/Quiz";
 import QuizSession from "./components/QuizSession";
+
 function App() {
     const [term, setTerm] = useState("");
     const [slang, setSlang] = useState(null);
@@ -26,9 +29,7 @@ function App() {
             setSlang(data);
             setError("");
         } catch {
-            setError(
-                "---------------------------------------------------------------------------Sorry, that slang word was not found.-----------------------------------------------------------------------------------"
-            );
+            setError("Sorry, that slang word was not found.");
             setSlang(null);
         }
     };
@@ -47,24 +48,39 @@ function App() {
                 toggleDarkMode={() => setDarkMode(!darkMode)}
             />
 
-            <SearchBar
-                value={term}
-                onChange={setTerm}
-                onSearch={search}
-                onRandom={random}
-            />
+            <nav className="nav-header">
+                <Link to="/" className="btn-header">Search</Link>
+                <Link to="/matching" className="btn-header">
+                    Matching Terms Game
+                </Link>
+            </nav>
 
-            {error && <p className="error">{error}</p>}
-            <SlangCard slang={slang} />
-        {/*    <Quiz/>{*/}
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <>
+                            <SearchBar
+                                value={term}
+                                onChange={setTerm}
+                                onSearch={search}
+                                onRandom={random}
+                            />
 
-        {/*}*/}
-            <QuizSession />
+                            {error && <p className="error">{error}</p>}
+                            <SlangCard slang={slang} />
+
+                            <QuizSession />
+                        </>
+                    }
+                />
+
+                <Route path="/matching" element={<MatchingGame />} />
+            </Routes>
 
             <Footer />
         </div>
     );
-
 }
 
 export default App;

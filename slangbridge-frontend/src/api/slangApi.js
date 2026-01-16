@@ -36,3 +36,10 @@ export async function checkQuizAnswer(term, selectedOption) {
     });
     return await res.json(); // expected { correct: boolean }
 }
+
+export async function getAllSlang() {
+    const res = await fetch("http://localhost:8080/api/slangs/all");
+    if (!res.ok) throw new Error("Failed to fetch slang");
+    return await res.json();
+}
+

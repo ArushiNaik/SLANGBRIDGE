@@ -1,0 +1,68 @@
+.matching-game-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Press Start 2P', monospace; /* retro arcade */
+    color: #fff;
+}
+
+.matching-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.terms-column,
+.defs-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    background: #182848;
+    border: 3px solid #4e5d94;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform .12s, background .12s, border-color .12s;
+    font-size: 14px;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    border-color: #7bb2ff;
+}
+
+.term-item.selected {
+    background: #355CFF;
+    border-color: #9BC3FF;
+}
+
+.score {
+    background: #121E3B;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    width: max-content;
+    margin: 10px auto;
+}
+
+button {
+    margin-top: 20px;
+    background: #4B8BFF;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.12s;
+}
+
+button:hover {
+    transform: scale(1.07);
+    background: #6FA1FF;
+}

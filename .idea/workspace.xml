@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17b3ced9-1b85-4dce-beeb-298738c6c7bc" name="Changes" comment="Backend ready for quiz feature">
-      <change afterPath="$PROJECT_DIR$/slangbridge-frontend/src/api/quizApi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slangbridge-frontend/src/components/MatchingPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slangbridge-frontend/src/pages/MatchingGame.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slangbridge-frontend/src/pages/matching-game.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/QuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/QuizController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/dto/QuizSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/dto/QuizSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/service/SlangQuizService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/service/SlangQuizService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/SlangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/slangbridge/backend/controller/SlangController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/api/slangApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/api/slangApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/components/Quiz.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/components/Quiz.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/components/QuizSession.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/components/QuizSession.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/main.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,40 +65,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.SlangbridgeBackendApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Node.js.QuizSession.jsx.executor": "Run",
-    "Node.js.SearchBar.jsx.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SHELLCHECK.PATH": "C:\\Users\\arush\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.2\\plugins\\Shell Script\\shellcheck.exe",
-    "Spring Boot.BackendApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arush/SLANGBRIDGE",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "settings.sync",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.SlangbridgeBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.QuizSession.jsx.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.SearchBar.jsx.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\arush\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.2\\plugins\\Shell Script\\shellcheck.exe&quot;,
+    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/arush/SLANGBRIDGE&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\arush\SLANGBRIDGE\slangbridge-frontend\src\pages" />
       <recent name="C:\Users\arush\SLANGBRIDGE\backend\src\main" />
       <recent name="C:\Users\arush\SLANGBRIDGE\backend\src\test\java\com\slangbridge" />
     </key>
@@ -123,7 +127,7 @@
       <workItem from="1768195530951" duration="669000" />
       <workItem from="1768196243711" duration="1021000" />
       <workItem from="1768197318768" duration="27617000" />
-      <workItem from="1768433223703" duration="7320000" />
+      <workItem from="1768433223703" duration="19598000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -229,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768366986072</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Backend ready for quiz feature">
+      <option name="closed" value="true" />
+      <created>1768450260964</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1768450260964</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
