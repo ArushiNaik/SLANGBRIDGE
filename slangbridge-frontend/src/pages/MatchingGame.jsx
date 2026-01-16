@@ -10,36 +10,54 @@ export default function MatchingGame() {
     const [terms, setTerms] = useState([]);
     const [defs, setDefs] = useState([]);
     const [selectedTerm, setSelectedTerm] = useState(null);
-    const [score, setScore] = useState(0);
+
+    const [matched, setMatched] = useState(new Set());
+    const [wrong, setWrong] = useState(null);
+
+    const [roundComplete, setRoundComplete] = useState(false);
+    const [score, setScore] = useState(0); // <-- restored
 
     function initializeRound(data) {
         const shuffled = [...data].sort(() => Math.random() - 0.5);
         const chunk = shuffled.slice(0, 8);
 
-        const t = chunk.map(s => ({ id: s.id, term: s.term, example: s.example }));
+        const t = chunk.map(s => ({
+            id: s.id,
+            term: s.term,
+            example: s.example,
+            matchId: s.id
+        }));
+
         const d = chunk
-            .map(s => ({ id: s.id, definition: s.definition }))
+            .map(s => ({
+                id: s.id,
+                definition: s.definition,
+                matchTermId: s.id
+            }))
             .sort(() => Math.random() - 0.5);
 
         setTerms(t);
         setDefs(d);
         setSelectedTerm(null);
-        setScore(0);
+        setMatched(new Set());
+        setWrong(null);
+        setRoundComplete(false);
+        setScore(0); // reset score for new round
     }
 
     useEffect(() => {
-        let isMounted = true;
+        let active = true;
 
         async function load() {
             try {
                 const data = await getAllSlang();
-                if (!isMounted) return;
+                if (!active) return;
 
                 setSlangList(data);
                 initializeRound(data);
                 setLoading(false);
             } catch {
-                if (isMounted) {
+                if (active) {
                     setError("Failed to load slang terms.");
                     setLoading(false);
                 }
@@ -47,24 +65,38 @@ export default function MatchingGame() {
         }
 
         load();
-        return () => { isMounted = false; };
+        return () => { active = false };
     }, []);
 
     function handleTermClick(id) {
+        if (matched.has(id) || roundComplete) return;
         setSelectedTerm(id);
     }
 
     function handleDefClick(defId) {
-        if (!selectedTerm) return;
+        if (!selectedTerm || roundComplete) return;
 
-        if (defId === selectedTerm) {
-            setScore(prev => prev + 1);
+        const term = terms.find(t => t.id === selectedTerm);
+
+        if (term.matchId === defId) {
+            setMatched(prev => {
+                const newSet = new Set([...prev, term.id]);
+
+                setScore(prevScore => prevScore + 1);
+
+                if (newSet.size === terms.length) {
+                    setRoundComplete(true);
+                }
+                return newSet;
+            });
+
+            setSelectedTerm(null);
+            setWrong(null);
+
         } else {
-            const termObj = terms.find(t => t.id === selectedTerm);
-            alert(`Try again.\nHint: ${termObj.example || "No hint available."}`);
+            setWrong({ termId: term.id, defId });
+            setTimeout(() => setWrong(null), 900);
         }
-
-        setSelectedTerm(null);
     }
 
     if (loading) return <div>Loading game...</div>;
@@ -74,14 +106,30 @@ export default function MatchingGame() {
         <div className="matching-game-container">
             <h2>Matching Terms Game</h2>
             <p>Loaded {slangList.length} total slang terms</p>
-            <div className="score">Score: {score}</div>
+            <div className="score">Score: {score} / {terms.length}</div>
 
-            <div className="matching-grid">
+            {roundComplete && (
+                <div className="round-complete-banner">
+                    <h3>Round Complete! 🎉</h3>
+                    <button onClick={() => initializeRound(slangList)}>
+                        Next Round
+                    </button>
+                </div>
+            )}
+
+            <div className={`matching-grid ${roundComplete ? "disabled" : ""}`}>
                 <div className="terms-column">
+                    <h3>Terms</h3>
                     {terms.map(t => (
                         <div
                             key={t.id}
-                            className={`item term-item ${selectedTerm === t.id ? "selected" : ""}`}
+                            className={[
+                                "item",
+                                "term-item",
+                                matched.has(t.id) && "correct",
+                                wrong?.termId === t.id && "wrong",
+                                selectedTerm === t.id && !matched.has(t.id) && "selected"
+                            ].filter(Boolean).join(" ")}
                             onClick={() => handleTermClick(t.id)}
                         >
                             {t.term}
@@ -90,10 +138,16 @@ export default function MatchingGame() {
                 </div>
 
                 <div className="defs-column">
+                    <h3>Definitions</h3>
                     {defs.map(d => (
                         <div
                             key={d.id}
-                            className="item def-item"
+                            className={[
+                                "item",
+                                "def-item",
+                                matched.has(d.matchTermId) && "correct",
+                                wrong?.defId === d.id && "wrong"
+                            ].filter(Boolean).join(" ")}
                             onClick={() => handleDefClick(d.id)}
                         >
                             {d.definition}
@@ -101,11 +155,6 @@ export default function MatchingGame() {
                     ))}
                 </div>
             </div>
-
-
-            <button onClick={() => initializeRound(slangList)}>
-                New Round
-            </button>
         </div>
     );
 }
