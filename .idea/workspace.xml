@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="17b3ced9-1b85-4dce-beeb-298738c6c7bc" name="Changes" comment="added match the terms game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/pages/MatchingGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/pages/MatchingGame.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slangbridge-frontend/src/pages/matching-game.css" beforeDir="false" afterPath="$PROJECT_DIR$/slangbridge-frontend/src/pages/matching-game.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +116,7 @@
       <workItem from="1768195530951" duration="669000" />
       <workItem from="1768196243711" duration="1021000" />
       <workItem from="1768197318768" duration="27617000" />
-      <workItem from="1768433223703" duration="22564000" />
+      <workItem from="1768433223703" duration="23280000" />
     </task>
     <task id="LOCAL-00001">
       <option name="closed" value="true" />
@@ -249,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768538634061</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added match the terms game">
+      <option name="closed" value="true" />
+      <created>1768541321390</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1768541321390</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
